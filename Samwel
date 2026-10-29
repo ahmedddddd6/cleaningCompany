@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من الألف للياء لخدمات النظافة | A-to-Z Cleaning Services Oslo</title>
+    <!-- Google Fonts for modern Arabic Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html { 
+            scroll-behavior: smooth; 
+        }
+        
+        :root {
+            --primary: #06b6d4;         /* Cyan Blue Freshness */
+            --primary-light: #22d3ee;   /* Bright Teal */
+            --accent: #10b981;          /* Emerald Green Accent */
+            --bg-dark: #070f1e;         /* Deep Clean Blue Black */
+            --card-bg: #0f172a;         /* Slate Card Fill */
+            --card-hover: #1e293b;      /* Slate Hover */
+            --text-main: #f8fafc;       /* Clean White-Gray Text */
+            --text-muted: #94a3b8;      /* Soft Muted Text */
+        }
+
+        body { 
+            font-family: 'Tajawal', 'Inter', sans-serif; 
+            background: var(--bg-dark); 
+            color: var(--text-main); 
+            margin: 0; 
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 16px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #070f1e;
+            font-weight: 900;
+            font-size: 1.3rem;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .location-badge {
+            color: var(--primary-light); 
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: rgba(6, 182, 212, 0.1);
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Section */
+        .hero { 
+            padding: 90px 20px 110px; 
+            text-align: center; 
+            background: radial-gradient(circle at center, #0e1e38 0%, #070f1e 100%); 
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.3), transparent);
+        }
+
+        .hero h1 { 
+            font-size: clamp(2.2rem, 5vw, 3.8rem); 
+            font-weight: 900; 
+            margin-bottom: 18px; 
+            background: linear-gradient(135deg, #ffffff 30%, var(--primary-light) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            line-height: 1.25;
+        }
+
+        .hero .arabic-greet { 
+            font-size: 1.25rem; 
+            color: #cbd5e1; 
+            margin: 0 auto 25px auto; 
+            max-width: 850px;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 16px 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.8;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted); 
+            margin-bottom: 35px;
+        }
+
+        /* Services Section */
+        .services { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 28px; 
+            max-width: 1200px; 
+            margin: -40px auto 80px; 
+            padding: 0 20px; 
+            position: relative;
+            z-index: 10;
+        }
+
+        .card { 
+            background: var(--card-bg); 
+            padding: 38px 30px; 
+            border-radius: 24px; 
+            border: 1px solid rgba(255, 255, 255, 0.06); 
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); 
+            cursor: pointer; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover { 
+            border-color: rgba(6, 182, 212, 0.4); 
+            transform: translateY(-8px); 
+            background: var(--card-hover); 
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            padding: 12px;
+            border-radius: 16px;
+            color: var(--primary-light);
+        }
+
+        .card h3 { 
+            color: var(--primary-light); 
+            margin-top: 0; 
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        #contact { 
+            padding: 60px 20px 100px; 
+            max-width: 820px; 
+            margin: 0 auto; 
+        }
+
+        .contact-form { 
+            background: #0f172a; 
+            padding: 45px; 
+            border-radius: 28px; 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-form h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        input, select, textarea { 
+            width: 100%; 
+            padding: 16px 18px; 
+            background: #070f1e; 
+            border: 1px solid #334155; 
+            border-radius: 14px; 
+            color: white; 
+            box-sizing: border-box; 
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.25s, box-shadow 0.25s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+        }
+
+        select option {
+            background: #0f172a;
+            color: white;
+            padding: 10px;
+        }
+
+        .btn { 
+            background: linear-gradient(135deg, var(--primary), #0284c7); 
+            color: #ffffff; 
+            padding: 18px 35px; 
+            border-radius: 50px; 
+            font-size: 1.1rem;
+            font-weight: 700; 
+            text-decoration: none; 
+            display: inline-block; 
+            border: none; 
+            cursor: pointer; 
+            width: 100%;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(6, 182, 212, 0.45);
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        }
+
+        /* Footer */
+        footer { 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-top: 1px solid rgba(255, 255, 255, 0.08); 
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            background: #040812;
+        }
+
+        footer strong {
+            color: #f1f5f9;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <div class="logo-icon">A-Z</div>
+            <span>من الألف للياء للخدمات</span>
+        </div>
+        <div class="location-badge">
+            <span>🌐</span> OSLO, NORWAY
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>نظافة فائقة. بيئة صحية. جودة بلا حدود</h1>
+        <div class="arabic-greet">
+          .. التحية لكم من موقعي (من الألف للياء للخدمات والنظافة الشاملة)
+        </div>
+        <p>حلول تنظيف وتعقيم متكاملة للمنازل والشركات بأعلى معايير الجودة والاستدامة في أوسلو.</p>
+        <a href="#contact" class="btn" style="width: auto; padding: 16px 45px;" onclick="updateForm('home')">احجز خدمتك الآن</a>
+    </header>
+
+    <main class="services">
+        <div class="card" onclick="updateForm('home')">
+            <div class="card-icon">🧹</div>
+            <h3>تنظيف المنازل والفيلا</h3>
+            <p>خدمات تنظيف دورية وشاملة للمنازل، الشقق، والفلل بأحدث المعدات ومواد آمنة للبيئة.</p>
+        </div>
+        <div class="card" onclick="updateForm('commercial')">
+            <div class="card-icon">🏢</div>
+            <h3>نظافة المكاتب والشركات</h3>
+            <p>حلول تنظيف مخصصة للمقرات التجارية والمكاتب لضمان بيئة عمل صحية ومنظمة باستمرار.</p>
+        </div>
+        <div class="card" onclick="updateForm('deep')">
+            <div class="card-icon">✨</div>
+            <h3>التنظيف العميق والتعقيم</h3>
+            <p>تنظيف شامل للمطابخ، الحمامات، السجاد، الواجهات، وتطهير كامل بأعلى المستويات.</p>
+        </div>
+    </main>
+
+    <section id="contact">
+        <div class="contact-form">
+            <h2 style="color: var(--primary-light); text-align: center;">طلب عرض سعر / حجز خدمة</h2>
+            <form action="https://formspree.io/f/xojpbdbz" method="POST">
+                <div class="form-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" name="name" placeholder="أدخل اسمك الكامل" required>
+                </div>
+
+                <div class="form-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" name="email" placeholder="name@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>نوع الخدمة الرئيسية:</label>
+                    <select name="category" id="mainService" onchange="populateSubOptions()">
+                        <option value="general">استفسار عام</option>
+                        <option value="home">تنظيف المنازل والفيلا</option>
+                        <option value="commercial">نظافة المكاتب والشركات</option>
+                        <option value="deep">التنظيف العميق والتعقيم</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>تفاصيل الخدمة المطلوبة:</label>
+                    <select name="sub_service" id="subService">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>تفاصيل أو ملاحظات إضافية:</label>
+                    <textarea name="message" rows="4" placeholder="اذكر مساحة المكان، الموعد المفضل، أو أي متطلبات خاصة..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">إرسال الطلب</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <strong>AHMED ALI Enkeltpersonforetak</strong><br>
+        Org.nr: 935 048 362 | Oslo, Norway
+    </footer>
+
+    <script>
+        const options = {
+            general: [
+                "استشارة عامة حول الخدمات", 
+                "طلب زيارة معاينة وتثمين", 
+                "استفسار عن أسعار العقود السنوية"
+            ],
+            home: [
+                "تنظيف دوري (أسبوعي / شهري)", 
+                "تنظيف الشقق بعد الانتقال (Flyttevask)", 
+                "تنظيف الفلل والبيوت الكبيرة", 
+                "تنظيف النوافذ والواجهات الزجاجية"
+            ],
+            commercial: [
+                "تنظيف المكاتب والمقرات الإدارية", 
+                "نظافة المحلات والمراكز التجارية", 
+                "عقود نظافة صالات ومراكز الفعاليات", 
+                "تنظيف ما بعد الصيانة أو التجديد"
+            ],
+            deep: [
+                "تعقيم وتطبيس كامل للمبنى", 
+                "غسيل السجاد والمفروشات بالبخار", 
+                "تنظيف عميق للمطابخ والحمامات", 
+                "تنظيف بعد أعمال البناء والتشطيبات"
+            ]
+        };
+
+        function populateSubOptions() {
+            const main = document.getElementById('mainService').value;
+            const sub = document.getElementById('subService');
+            sub.innerHTML = "";
+            options[main].forEach(opt => {
+                let el = document.createElement("option");
+                el.textContent = opt;
+                el.value = opt;
+                sub.appendChild(el);
+            });
+        }
+
+        function updateForm(serviceType) {
+            document.getElementById('mainService').value = serviceType;
+            populateSubOptions();
+            window.location.hash = "contact";
+        }
+
+        // تشغيل القائمة الديناميكية لأول مرة عند تحميل الصفحة
+        populateSubOptions();
+    </script>
+</body>
+</html>
